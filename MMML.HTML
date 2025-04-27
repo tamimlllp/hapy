@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>عيد ميلاد سعيد يا معاذ</title>
+    <style>
+        body {
+            background-color: #f5f5dc; /* بيج */
+            font-family: 'Cairo', sans-serif;
+            color: #7b4b00; /* بني غامق أنيق */
+            text-align: center;
+            padding: 50px;
+            border: 15px solid #d4af37; /* إطار ذهبي فاخر */
+            border-radius: 30px;
+            margin: 30px;
+        }
+        h1 {
+            font-size: 60px;
+            margin-bottom: 10px;
+            color: #b8860b;
+        }
+        h2 {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+        .image-container {
+            margin-top: 30px;
+        }
+        .image-container img {
+            width: 300px;
+            border-radius: 20px;
+            border: 5px solid #d4af37;
+            margin: 10px;
+            animation: float 3s infinite alternate;
+        }
+        @keyframes float {
+            from { transform: translateY(0px); }
+            to { transform: translateY(-15px); }
+        }
+        #countdown {
+            font-size: 28px;
+            margin-top: 30px;
+            color: #8b4513;
+        }
+        audio {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>عيد ميلاد سعيد يا معاذ!</h1>
+    <h2>18 سنة من الدياي والهيبة!</h2>
+
+    <p>كل عام وأنت أجمل وألطف وأغلى من عرفناهم!</p>
+    <p>يا رب أيامك بيض مثل قلبك الجميل!</p>
+    <p>وقريبا نحتفل بك بين بيضك والفرح!</p>
+
+    <div class="image-container">
+        
+        <img src="https://i.pinimg.com/originals/c4/4b/f3/c44bf3668be61e003a5e5e3d8d1be920.jpg" alt="دجاجة ملكة" style="width:300px; border-radius:20px; margin:10px;">
+
+<img src="https://images.unsplash.com/photo-1585325701954-1b626f85c3c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=60" alt="بيض احتفالي" style="width:300px; border-radius:20px; margin:10px;">
+
+    </div>
+
+    <div id="countdown"></div>
+<audio id="birthdayMusic" loop>
+    <source src="https://files.catbox.moe/7s5k0s.mp3" type="audio/mpeg">
+</audio>
+
+<button onclick="playMusic()" style="
+    padding: 12px 25px; 
+    font-size: 22px; 
+    margin-top: 30px; 
+    background-color: #d4af37; 
+    color: white; 
+    border: none; 
+    border-radius: 12px; 
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+">
+    اسمع صوت نباحك
+</button>
+
+<script>
+function playMusic() {
+    var music = document.getElementById("birthdayMusic");
+    music.play().then(() => {
+        console.log("تم تشغيل الموسيقى بنجاح");
+    }).catch(error => {
+        console.log("حدث خطأ في تشغيل الموسيقى:", error);
+    });
+}
+</script>
+
+    <audio autoplay loop>
+        <source src="https://cdn.pixabay.com/audio/2023/02/08/audio_65473f8d2b.mp3" type="audio/mpeg">
+        متصفحك لا يدعم تشغيل الصوت.
+    </audio>
+
+    <script>
+        var countDownDate = new Date("May 10, 2025 00:00:00").getTime();
+        var x = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML = 
+            "تبقى: " + days + " يوم " + hours + " ساعة " + minutes + " دقيقة " + seconds + " ثانية";
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "كل عام وأنت أجمل هدية!";
+            }
+        }, 1000);
+    </script>
+
+</body>
+</html>
